@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SHANVÉ – Your Health. Your Habits. Your Control.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1a22; --surface:#13262f; --line:#27404c; --text:#eef3f2; --muted:#9db3b8;
+  --accent:#f4b942; --accent-ink:#201602; --sleep:#8fa8ff; --water:#5ed0e6; --steps:#f4b942;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f4f7f6; --surface:#e6eeed; --line:#c5d3d2; --text:#0f2229; --muted:#4b6168;
+    --accent:#b97a00; --accent-ink:#ffffff; --sleep:#4a63d6; --water:#0a8aa6; --steps:#b97a00;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f4f7f6; --surface:#e6eeed; --line:#c5d3d2; --text:#0f2229; --muted:#4b6168;
+  --accent:#b97a00; --accent-ink:#ffffff; --sleep:#4a63d6; --water:#0a8aa6; --steps:#b97a00;
+}
+:root[data-theme="dark"]{}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3,.brand{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;letter-spacing:-0.02em}
+
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;flex-wrap:wrap}
+.brand{font-size:1.5rem;font-weight:800;text-decoration:none;letter-spacing:.04em}
+nav.actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+nav.actions a.link{text-decoration:none;color:var(--muted);font-weight:500}
+nav.actions a.link:hover{color:var(--text)}
+
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;border:2px solid var(--accent);transition:background .15s,color .15s}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--text)}
+.btn.ghost:hover{background:var(--accent);color:var(--accent-ink)}
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:56px 0 88px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.02;margin:0 0 20px;font-weight:800}
+.hero h1 span{display:block}
+.hero p.lead{color:var(--muted);font-size:1.15rem;max-width:34em;margin:0 0 32px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+
+.rings{justify-self:center;width:100%;max-width:360px}
+.rings svg{width:100%;height:auto;display:block}
+.ring-bg{fill:none;stroke:var(--line);stroke-width:16}
+.ring{fill:none;stroke-width:16;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+.ring.sleep{stroke:var(--sleep);stroke-dasharray:754;stroke-dashoffset:754;animation:draw 1.4s .1s ease-out forwards;--to:196}
+.ring.water{stroke:var(--water);stroke-dasharray:578;stroke-dashoffset:578;animation:draw 1.4s .3s ease-out forwards;--to:145}
+.ring.steps{stroke:var(--steps);stroke-dasharray:402;stroke-dashoffset:402;animation:draw 1.4s .5s ease-out forwards;--to:80}
+@keyframes draw{to{stroke-dashoffset:var(--to)}}
+.legend{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:8px;font-size:.95rem}
+.legend li{display:flex;align-items:center;gap:10px}
+.legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.legend b{margin-left:auto;font-weight:600}
+.legend small{display:block;color:var(--muted);margin-top:4px;font-size:.8rem}
+
+section{padding:52px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 8px;line-height:1.1}
+section .sub{color:var(--muted);margin:0 0 28px;font-style:italic}
+.features{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px 32px}
+.features li{display:flex;align-items:center;gap:12px}
+.features svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.features h3{font-size:1.02rem;margin:0;font-weight:600;line-height:1.3}
+
+.join{text-align:center}
+.join .cta{justify-content:center;margin-top:28px}
+.tagline{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.1;margin:0;letter-spacing:-0.02em}
+.tagline span{display:block}
+.tagline span+span{color:var(--accent)}
+
+.contact{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.contact h2{margin:0 0 4px;font-size:1.6rem}
+.contact p{margin:0;color:var(--muted)}
+.contact a.mail{font-weight:600;color:var(--accent);font-size:1.1rem}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:24px;gap:40px}
+  .features{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .ring{animation:none!important;stroke-dashoffset:var(--to)!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sleep" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/><path d="M17 3v4M15 5h4"/></symbol>
+  <symbol id="i-water" viewBox="0 0 24 24"><path d="M12 3s6 6.2 6 10.5a6 6 0 0 1-12 0C6 9.2 12 3 12 3z"/><path d="M9.5 14a2.6 2.6 0 0 0 2.5 2.5"/></symbol>
+  <symbol id="i-steps" viewBox="0 0 24 24"><path d="M8 3c2 0 3 2 3 5s-1 5-3 5-3-2-3-5 1-5 3-5z"/><path d="M6.5 17h3v2.5a1.5 1.5 0 0 1-3 0z"/><path d="M16 8c2 0 3 2 3 5s-1 5-3 5-3-2-3-5 1-5 3-5z" transform="translate(-1 2)"/></symbol>
+  <symbol id="i-workout" viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></symbol>
+  <symbol id="i-inactive" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M7 13l3-3 2.5 2.5L17 8"/></symbol>
+  <symbol id="i-habit" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M8 2.5v4M16 2.5v4M3.5 9.5h17M9 15l2 2 4-4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15z"/><path d="M10 21a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5 16l4-5 3 3 6-8"/><path d="M15 6h3v3"/></symbol>
+  <symbol id="i-goal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top">SHANVÉ</a>
+    <nav class="actions" aria-label="Main">
+      <a class="link" href="#features">Features</a>
+      <a class="link" href="#contact">Contact us</a>
+      <a class="btn ghost" href="#login">Log in</a>
+      <a class="btn primary" href="#signin">Sign in</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1><span>Your Health.</span><span>Your Habits.</span><span>Your Control.</span></h1>
+        <p class="lead">Sleep, water, steps, workouts and habits, all tracked in one place. Log in to pick up where you left off, or sign in to start your wellness journey.</p>
+        <div class="cta">
+          <a class="btn primary" href="#login">Log in</a>
+          <a class="btn ghost" href="#signin">Sign in</a>
+        </div>
+      </div>
+      <div class="rings" role="img" aria-label="Sample daily progress rings for sleep, hydration and steps">
+        <svg viewBox="0 0 300 300">
+          <circle class="ring-bg" cx="150" cy="150" r="120"/>
+          <circle class="ring-bg" cx="150" cy="150" r="92"/>
+          <circle class="ring-bg" cx="150" cy="150" r="64"/>
+          <circle class="ring sleep" cx="150" cy="150" r="120"/>
+          <circle class="ring water" cx="150" cy="150" r="92"/>
+          <circle class="ring steps" cx="150" cy="150" r="64"/>
+        </svg>
+        <ul class="legend">
+          <li><i style="background:var(--sleep)"></i>Sleep <b>7h 40m</b></li>
+          <li><i style="background:var(--water)"></i>Water <b>6 of 8 glasses</b></li>
+          <li><i style="background:var(--steps)"></i>Steps <b>8,420</b></li>
+        </ul>
+        <small style="color:var(--muted);font-size:.8rem;display:block;margin-top:6px">Sample day, shown for illustration.</small>
+      </div>
+    </div>
+
+    <section id="features">
+      <h2>Key features</h2>
+      <p class="sub">Your Health. Your Habits. Your Control.</p>
+      <ul class="features">
+        <li><svg><use href="#i-sleep"/></svg><h3>Smart Sleep Tracking</h3></li>
+        <li><svg><use href="#i-water"/></svg><h3>Smart Hydration Reminders</h3></li>
+        <li><svg><use href="#i-steps"/></svg><h3>Automatic Step Counter</h3></li>
+        <li><svg><use href="#i-workout"/></svg><h3>Workout Reminders</h3></li>
+        <li><svg><use href="#i-inactive"/></svg><h3>Inactivity Alerts</h3></li>
+        <li><svg><use href="#i-habit"/></svg><h3>Daily Habit Tracker</h3></li>
+        <li><svg><use href="#i-bell"/></svg><h3>Intelligent Notifications</h3></li>
+        <li><svg><use href="#i-dash"/></svg><h3>Personalised Wellness Dashboard</h3></li>
+        <li><svg><use href="#i-chart"/></svg><h3>Progress &amp; Analytics</h3></li>
+        <li><svg><use href="#i-goal"/></svg><h3>Personal Goal Management</h3></li>
+      </ul>
+    </section>
+
+    <section class="join" id="join">
+      <p class="tagline"><span>A Smarter Way to Live.</span><span>A Healthier Way to Be.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="#login">Log in</a>
+        <a class="btn ghost" href="#signin">Sign in</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <h2>Contact us</h2>
+          <p>Questions or feedback? Send us an email and we’ll get back to you.</p>
+        </div>
+        <a class="mail" href="mailto:support@shanve-app.com">support@shanve-app.com</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SHANVÉ. All rights reserved.</span>
+    <span>Website developed by Shubhank Nagaraj LS</span>
+  </div>
+</footer>
+</body>
+</html>
